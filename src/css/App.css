@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  /*remove blue shadow in mobile buttons*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  background-color: var(--background);
+}
+
+/*
+  ======================================================
+                      CSS VARIABLES
+  ======================================================
+*/
+:root {
+  --background: #fcfcfc;
+  --primary: #202f46;
+  --accent: #0c6697;
+  --backgroundCard: #fefefe;
+  --textColor: #8a8a8a;
+}
+
+/*
+  ======================================================
+                        CONTAINERS
+  ======================================================
+*/
+.container {
+  width: 100%;
+  height: auto;
+  /* background-color: aqua; */
+  padding: 2.5rem 1.88rem;
+}
+
+.temp-container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.control-container {
+  width: 100%;
+  height: auto;
+}
+
+/*
+  ======================================================
+                      MOBILE FIRST
+  ======================================================
+*/
+
+/*
+  ======================================================
+                       FAN CONTROL
+  ======================================================
+*/
+.fan-control {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.fan-control__title {
+  font-size: 24px;
+  font-weight: 200;
+  color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title__icon {
+  font-size: 22px;
+}
+
+.title__info {
+  margin-left: 10px;
+}
+
+.fan-control__description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--textColor);
+  margin-bottom: 10px;
+}
+
+.fan-control__mode {
+  width: 100%;
+  height: auto;
+}
+
+.fan-mode__manual {
+  width: 100%;
+  height: auto;
+}
+
+/*
+  ======================================================
+                       SEPARATOR
+  ======================================================
+*/
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: #dfdddd;
+  margin: 50px 0;
+}
+
+/*
+  ======================================================
+                        LED CONTROL
+  ======================================================
+*/
+.led-control {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.led-control__title {
+  font-size: 24px;
+  font-weight: 200;
+  color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.led-control__content {
+  width: 100%;
+  height: auto;
+}
+
+.loader-container {
+  width: 100%;
+  height: 100vh;
+  /* background-color: rgba(32, 47, 70, 0.6); */
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.loader__text {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+}
+
+/*
+  ======================================================
+                      DESKTOP VERSION
+  ======================================================
+*/
+
+/* LAPTOP */
+@media only screen and (min-width: 768px) {
+  .control-container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  }
+
+  .temp-container {
+    margin-bottom: 50px;
+  }
+
+  /*
+  ======================================================
+                       FAN CONTROL
+  ======================================================
+*/
+  .fan-control {
+    padding-right: 15px;
+  }
+
+  .fan-control__mode {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fan-mode__manual {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /*
+  ======================================================
+                        LED CONTROL
+  ======================================================
+*/
+  .led-control {
+    padding-left: 15px;
+  }
+  .led-control__content {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* PC */
+@media only screen and (min-width: 1200px) {
+  .control-container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+  }
+
+  .separator {
+    width: 3px;
+    height: 70vh;
+  }
+}

@@ -1,0 +1,64 @@
+/*
+  ======================================================
+                      MOBILE FIRST
+  ======================================================
+*/
+
+.temp-card {
+  width: 100%;
+  height: 11.88rem;
+  background-color: var(--backgroundCard);
+  padding: 1.25rem 0.94rem;
+  border-radius: 0.94rem;
+  box-shadow: 0 0.25rem 0.94rem rgba(0, 0, 0, 0.1);
+}
+
+.temp-card__title {
+  width: 100%;
+  height: auto;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+}
+
+.temp-card__data {
+  width: 100%;
+  height: 4rem;
+  margin-top: 1.88rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon--warm {
+  font-size: 3.75rem;
+  color: #e76c6c;
+}
+
+.icon--cold {
+  font-size: 3.75rem;
+  color: #65b6d9;
+}
+
+.temperature {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-left: 0.94rem;
+  color: var(--textColor);
+}
+
+/*
+  ======================================================
+                      DESKTOP VERSION
+  ======================================================
+*/
+@media only screen and (min-width: 768px) {
+  .temp-card {
+    margin: 0 auto;
+    width: 21.88rem;
+  }
+}

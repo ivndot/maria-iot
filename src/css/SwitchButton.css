@@ -1,0 +1,94 @@
+/*
+  ======================================================
+                      MOBILE FIRST
+  ======================================================
+*/
+.switch-button {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.switch-button--title {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--textColor);
+  margin-bottom: 10px;
+}
+
+.switch-button--card {
+  width: 100%;
+  height: 170px;
+  padding: 20px 25px;
+  background-color: var(--backgroundCard);
+  border-radius: 15px;
+  box-shadow: 0 0.25rem 0.94rem rgba(0, 0, 0, 0.1);
+}
+
+.card--state {
+  font-size: 22px;
+  font-weight: 200;
+  color: var(--accent);
+  text-align: center;
+}
+
+.card--button {
+  position: relative;
+  display: block;
+  margin: 15px auto;
+  width: 100px;
+  height: 50px;
+}
+
+.card--button input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.sliderButton {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.selectedSlider {
+  background-color: var(--accent);
+}
+
+.selectedSliderButton {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+}
+
+/*
+  ======================================================
+                      DESKTOP VERSION
+  ======================================================
+*/
+
+@media only screen and (min-width: 768px) {
+  .switch-button {
+    width: 350px;
+  }
+}
