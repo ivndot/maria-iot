@@ -5,7 +5,7 @@ import "../css/Navbar.css";
 const Navbar = () => (
   <header className="header">
     <nav className="nav">
-      <p className="nav__title">Web IoT</p>
+      <p className="nav__title">Mar&iacute;a IoT</p>
     </nav>
   </header>
 );

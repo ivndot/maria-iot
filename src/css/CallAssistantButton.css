@@ -1,0 +1,17 @@
+.assistantButton {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--accent);
+  color: var(--backgroundCard);
+  font-size: 25px;
+}
+
+.assistantButton:hover {
+  cursor: pointer;
+  background-color: #0a5882;
+}

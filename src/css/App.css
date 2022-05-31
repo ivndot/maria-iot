@@ -137,24 +137,6 @@ body {
   height: auto;
 }
 
-.loader-container {
-  width: 100%;
-  height: 100vh;
-  /* background-color: rgba(32, 47, 70, 0.6); */
-  background-color: rgba(0, 0, 0, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column nowrap;
-}
-
-.loader__text {
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: 300;
-  color: white;
-}
-
 /*
   ======================================================
                       DESKTOP VERSION
