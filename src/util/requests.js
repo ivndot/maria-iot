@@ -2,7 +2,8 @@
 const axios = require("axios").default;
 
 // API
-const API = "http://localhost:3000/api";
+//const API = "http://localhost:3000/api";
+const API = "https://api-iot-maria.herokuapp.com/api";
 
 /**
  * Function to get the temperature of the sensor
