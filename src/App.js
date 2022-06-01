@@ -7,11 +7,12 @@ import TemperatureCard from "./components/TemperatureCard";
 import FanControl from "./components/FanControl";
 import SwitchButton from "./components/SwitchButton";
 import LedControl from "./components/LedControl";
-import { getModeIoT, getTemperature, setModeIoT } from "./util/requests";
 import CallAssistantButton from "./components/CallAssistantButton";
 import Loader from "./components/Loader";
 import MariaUI from "./components/MariaUI";
-
+// util
+import { getModeIoT, getTemperature, setModeIoT } from "./util/requests";
+import { disconnectSockets, initSockets } from "./util/sockets";
 // speech recognition
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 
@@ -138,20 +139,16 @@ const App = () => {
 */
   useEffect(() => {
     // get the mode of the iot devices
-    const getInitModeAndTemperature = async () => {
+    const getInitMode = async () => {
       try {
         // get init mode
         const modeIoT = await getModeIoT();
-        // get init temperature
-        const temp = await getTemperature();
         // update states of mode
         setFanMode(modeIoT.substring(0, 1));
         setFanStatus(parseInt(modeIoT.substring(2, 3)));
         setFanSpeed(modeIoT.substring(4, 5));
         setLed1Status(parseInt(modeIoT.substring(6, 7)));
         setLed2Status(parseInt(modeIoT.substring(8, 9)));
-        // update state of temperature
-        setTemperature(temp.value_sensor);
         // update isLoading state
         setIsLoading(false);
         console.log("Init render");
@@ -159,30 +156,29 @@ const App = () => {
         console.error(error);
       }
     };
-    getInitModeAndTemperature();
-  }, []);
+    getInitMode();
 
-  /*
-  ======================================================
-              FETCH TEMPERATURE EVERY 2 SECONDS
-  ======================================================
-*/
-  setInterval(async () => {
-    try {
-      // get temperature
-      const temp = await getTemperature();
-      // update temp state
-      setTemperature(temp.value_sensor);
-    } catch (error) {
-      console.error(error);
-    }
-  }, 2000);
+    // init sockets
+    initSockets(handleTemperature);
+
+    // clean up sockets instance and the events listeners
+    return () => disconnectSockets();
+  }, []);
 
   /*
   ======================================================
                         HANDLERS
   ======================================================
 */
+  /**
+   * Function to update the temperature value
+   * @param {number} temperature
+   */
+  const handleTemperature = (temperature) => {
+    // update temperature
+    setTemperature(temperature);
+  };
+
   /**
    * Function to control the mode status
    * @param {EventListener} e
@@ -326,13 +322,10 @@ const App = () => {
         //console.log("YO DIGO --> ", transcript);
         resetTranscript();
       }
-    } else {
-      console.log("no escucho");
-      //setIsMariaListen(false);
     }
+    console.log("no escucho");
   };
 
-  //setIsMariaListen(false);
   handleSpeechRecognition();
 
   /*

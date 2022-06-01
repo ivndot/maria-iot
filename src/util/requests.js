@@ -1,9 +1,8 @@
 // axios
 const axios = require("axios").default;
 
-// API
-//const API = "http://localhost:3000/api";
-const API = "https://api-iot-maria.herokuapp.com/api";
+// API URL
+import API_URL from "./API";
 
 /**
  * Function to get the temperature of the sensor
@@ -11,7 +10,7 @@ const API = "https://api-iot-maria.herokuapp.com/api";
  */
 const getTemperature = async () => {
   try {
-    const response = await axios.get(`${API}/temp`);
+    const response = await axios.get(`${API_URL}/api/temp`);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -24,7 +23,7 @@ const getTemperature = async () => {
  */
 const getModeIoT = async () => {
   try {
-    const response = await axios.get(`${API}/mode`);
+    const response = await axios.get(`${API_URL}/api/mode`);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -40,7 +39,7 @@ const setModeIoT = async (iotMode) => {
   const iotModeConfig = JSON.stringify(iotMode);
   console.log(iotModeConfig);
   try {
-    await axios.put(`${API}/mode`, iotModeConfig, {
+    await axios.put(`${API_URL}/api/mode`, iotModeConfig, {
       headers: {
         "Content-Type": "application/json",
       },
