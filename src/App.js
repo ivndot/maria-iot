@@ -11,7 +11,7 @@ import CallAssistantButton from "./components/CallAssistantButton";
 import Loader from "./components/Loader";
 import MariaUI from "./components/MariaUI";
 // util
-import { getModeIoT, getTemperature, setModeIoT } from "./util/requests";
+import { getModeIoT, setModeIoT } from "./util/requests";
 import { disconnectSockets, initSockets } from "./util/sockets";
 // speech recognition
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";

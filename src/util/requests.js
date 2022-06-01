@@ -1,8 +1,8 @@
-// axios
-const axios = require("axios").default;
-
 // API URL
 import API_URL from "./API";
+
+// axios
+const axios = require("axios").default;
 
 /**
  * Function to get the temperature of the sensor
